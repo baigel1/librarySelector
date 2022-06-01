@@ -14,7 +14,7 @@ const Selector = () => {
     ]
     
     useEffect(() => {
-    
+        
         //determine what question to ask, or whether to show the finalized library!
         switch(answers.length){
             case 1: {
@@ -42,6 +42,7 @@ const Selector = () => {
                     setDocumentationLink("https://github.com/yext/answers-headless")
                 }
                 else if (answers[2] === 'False'){
+                 
                     setFoundResult(`Answers Core!`)
                     setDocumentationLink("https://hitchhikers.yext.com/docs/answerscoresdk/")
                 }
@@ -53,18 +54,20 @@ const Selector = () => {
                 
             }
             case 4: {
-                if (answers[3] === 'True') {
-                    setFoundResult(`React Component Library!`)
-                    setDocumentationLink("https://github.com/yext/answers-react-components")
-                }
-                else {
-                    setFoundResult(`React Headless!`)
-                    setDocumentationLink("https://github.com/yext/answers-headless-react")
+                if(!foundResult){
+                    if (answers[3] === 'True') {
+                        setFoundResult(`React Component Library!`)
+                        setDocumentationLink("https://github.com/yext/answers-react-components")
+                    }
+                    else {
+                        setFoundResult(`React Headless!`)
+                        setDocumentationLink("https://github.com/yext/answers-headless-react")
+                    }
                 }
                 break
             }
         }
-    }, [answers])
+    }, [answers, foundResult])
 
     const handleSelectAnswer = (e:any) => {
         //set the answer state with the new answer
