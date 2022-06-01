@@ -6,7 +6,7 @@ interface QuestionProps {
 const Question = ({question}:QuestionProps) => {
     
     return (
-        <h1>{question}</h1>
+        <h1 className="text-7xl">{question}</h1>
     )
 }
 
