@@ -77,9 +77,15 @@ const Selector = () => {
 
         
     }
+    const startOver = () => {
+        setAnswers([])
+        setQuestionNumber(0)
+        setFoundResult("")
+    }
 
     return (
-        
+        <>
+        <button onClick={startOver} className="my-4 opacity-80 bg-slate-400 black p-4 text-center rounded-md w-32 mx-4 font-bold text-black active:bg-slate-600 hover:bg-slate-500">Start Over?</button>
         <div className="flex flex-col items-center my-16">
             { foundResult ? <h1 className="text-7xl">{foundResult} Click <a href={documentationLink} className="text-cyan-800 font-bold">here</a> for documentation</h1> :
             <>
@@ -97,6 +103,7 @@ const Selector = () => {
                 
             }
         </div>
+        </>
     
     )
 }
